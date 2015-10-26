@@ -18,13 +18,13 @@ class Seccion(models.Model):
 
 class Tarea(models.Model):
 	nombre = models.CharField(max_length=100)
-	posibles_estados = ( ('Pendiente', 'Pendiente'),
-		('En progreso', 'En progreso'),
-		('En pruebas', 'En pruebas'),
-		('Completado', 'Completado'),
+	posibles_estados = ( ("Pendiente", "Pendiente"),
+		("En progreso", "En progreso"),
+		("En pruebas", "En pruebas"),
+		("Completado", "Completado"),
 		)
 	desc = models.TextField()
-	estado = models.CharField(max_length=12, choices=posibles_estados, default='Pendiente')
+	estado = models.CharField(max_length=12, choices=posibles_estados, default="Pendiente")
 	seccion = models.ForeignKey(Seccion)
 	
 	def __str__(self):

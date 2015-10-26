@@ -39,7 +39,7 @@ class tareaTestCase(TestCase):
 		p.save()
 		s = Seccion(nombre="stest", desc="descripción de stest", proyecto=p)
 		s.save()
-		t = Tarea(nombre="ttest", desc="descripción de ttest", estado="Pendiente", seccion=s)
+		t = Tarea(nombre="ttest", desc="descripción de ttest", seccion=s)
 		t.save()
 		self.assertEqual(t.nombre,"ttest")
 		print("Creada tarea con éxito")
@@ -49,7 +49,7 @@ class tareaTestCase(TestCase):
 		p.save()
 		s = Seccion(nombre="stest", desc="descripción de stest", proyecto=p)
 		s.save()
-		datos = { "nombre" : "ttest", "desc" : "descripcion de ttest", "estado" : "Pendiente", "seccion" : s.id }
+		datos = { "nombre" : "ttest", "desc" : "descripcion de ttest", "seccion" : s.id }
 		form = crearTareaForm(data=datos)
 		self.assertTrue(form.is_valid())
 		print("Formulario para crear tarea correcto")
