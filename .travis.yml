@@ -6,5 +6,5 @@ install:
  - python proyecto/setup.py install
 # command to run tests
 script:
- - cd web
+ - cd proyecto
  - python manage.py test
