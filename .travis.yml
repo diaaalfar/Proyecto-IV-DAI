@@ -3,7 +3,7 @@ python:
  - "3.4"
 # command to install dependencies
 install:
- - python web/setup.py install
+ - python proyecto/setup.py install
 # command to run tests
 script:
  - cd web
