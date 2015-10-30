@@ -32,11 +32,52 @@ Se irán añadiendo más herramientas en la descripción más adelante: utilizar
 
 Para la integración continua de la aplicación he utilizado [Travis](https://travis-ci.org/) que permite soporte para el lenguaje de programación que utilizo y me permite trabajar directamente con este repositorio de github de forma fácil.
 
+###Pasos
+
+Accedemos a la página web de travis (si no estamos dados de alta podemos hacerlo con la cuenta de github). Ya en nuestro perfil nos aparecen directamente los repositorios de Github en los que contribuimos.
+
+Tan solo tenemos que activar nuestro repositorio.
+
+![Repositorio activado a través de Travis](http://i1175.photobucket.com/albums/r628/jesusgorillo/travis_activado_zpsuuttlvkl.png)
+
+Ahora tenemos que definir el archivo de configuración de la integración continua, en este caso es un archivo *.yml*, en el que indicamos el lenguaje, la versión, como instalar dependencias y ejecutar los tests (se pueden añadir más cosas). Para mi caso quedaría tal que así:
+
+```
+	language: python
+	python:
+	 - "3.4"
+	before_install:
+	 - cd proyecto
+	# command to install dependencies
+	install:
+	 - make install
+	# command to run tests
+	script:
+	 - make test
+```
+
+Una vez creado lo subimos al directorio raíz de nuestro repositorio. A continuación accedemos a las propiedades del repositorio y dentro del menú **Webhooks & services** pulsamos sobre Travis CI y seguidamente pulsamos en el botón superior que indica **Test service**.
+
+![Menú del repositorio para activar el test](http://i1175.photobucket.com/albums/r628/jesusgorillo/test_service_zpsexufhaht.png)
+
+Ahora si nos vamos a la web de Travis podremos ver que se están realizando las operaciones pertinentes, y debería completarse con éxito todo el proceso. Recibiriamos un resultado parecido al siguiente:
+
+![Resultado de la operación de integración continua](http://i1175.photobucket.com/albums/r628/jesusgorillo/travis_completado_zpshb1sstys.png)
+
 ##Desarrollo basado en pruebas
 
-Para las pruebas para el despliegue de la aplicación he utilizado el sistema de test que ofrece Django. Puede consultar información [aquí](https://docs.djangoproject.com/en/1.8/topics/testing/)
+Para las pruebas para el despliegue de la aplicación he utilizado el sistema de test que ofrece Django, que utiliza un archivo llamado *test.py* en el que escribimos todos los tests que deseemos. Básicamente he utilizado este método porque tiene una estructura muy sencilla y es fácil de utilizar, además no es necesario instalar nada ya que viene incorporado. Puede consultar información [aquí](https://docs.djangoproject.com/en/1.8/topics/testing/).
 
-Tan solo con ejecutar el siguiente comando podemos ejecutar los test:
+Los test que he realizado hasta ahora, ya que no tengo avanzado el desarrollo del proyecto, son de los modelos de datos que voy a utilizar para guardar información y de los formularios para insertar información según esos modelos.
 
-`pyhon manage.py test`
+El archivo con los tests que he realizado se pueden ver [aquí](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/proyecto/scrumpy/tests.py).
+
+##Comandos básicos
+
+###Setup
+	`make install`
+###Test
+	`make test`
+###Run
+	`make run`
 
