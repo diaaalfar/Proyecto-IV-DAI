@@ -27,6 +27,28 @@ Al ser una aplicación web necesitaremos que de soporte ofreciendo una infraestr
 
 Se irán añadiendo más herramientas en la descripción más adelante: utilizar varias herramientas para la replicación de base de datos en el servidor, utilizar RAID para el almacenamiento dentro de los servidores web...
 
+##Herramienta de construcción
+
+Como herramienta de construcción he utilizado un archivo *Makefile* en el que están los comandos de todas las tareas de construcción o control.
+
+El contenido del archivo irá variando a lo largo del proyecto, y puedes ver su contenido [aquí](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/proyecto/Makefile).
+
+
+- clean: para borrar archivos .pyc o .py~
+- install: con esto se instalará lo necesario para la aplicación, como pueden ser las dependencias
+- test: para realizar los test
+- run: para ejecutar la aplicación
+
+Por ejemplo, podemos probar a ejecutar los siguientes comandos y ver los resultados
+
+`make test`
+
+![Resultado del comando make test](http://i1175.photobucket.com/albums/r628/jesusgorillo/make_test_zps4jeexsb8.png)
+
+`make run`
+
+![Resultado del comando make run](http://i1175.photobucket.com/albums/r628/jesusgorillo/make_run_zpsyztzax0u.png)
+
 ##Desarrollo basado en pruebas
 
 Para las pruebas para el despliegue de la aplicación he utilizado el sistema de test que ofrece Django, que utiliza un archivo llamado *test.py* en el que escribimos todos los tests que deseemos. Básicamente he utilizado este método porque tiene una estructura muy sencilla y es fácil de utilizar, además no es necesario instalar nada ya que viene incorporado. Puede consultar información [aquí](https://docs.djangoproject.com/en/1.8/topics/testing/).
@@ -85,4 +107,3 @@ Ahora si nos vamos a la web de Travis podremos ver que se están realizando las 
 	make test
 ###Run
 	make run
-
