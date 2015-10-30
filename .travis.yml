@@ -3,8 +3,9 @@ python:
  - "3.4"
 # command to install dependencies
 install:
- - python proyecto/setup.py install
+ - cd proyecto
+ - make install
 # command to run tests
 script:
  - cd proyecto
- - python manage.py test
+ - make test
