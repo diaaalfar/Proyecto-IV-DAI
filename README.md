@@ -27,10 +27,23 @@ Al ser una aplicación web necesitaremos que de soporte ofreciendo una infraestr
 
 Se irán añadiendo más herramientas en la descripción más adelante: utilizar varias herramientas para la replicación de base de datos en el servidor, utilizar RAID para el almacenamiento dentro de los servidores web...
 
+##Desarrollo basado en pruebas
+
+Para las pruebas para el despliegue de la aplicación he utilizado el sistema de test que ofrece Django, que utiliza un archivo llamado *test.py* en el que escribimos todos los tests que deseemos. Básicamente he utilizado este método porque tiene una estructura muy sencilla y es fácil de utilizar, además no es necesario instalar nada ya que viene incorporado. Puede consultar información [aquí](https://docs.djangoproject.com/en/1.8/topics/testing/).
+
+Los test que he realizado hasta ahora, ya que no tengo avanzado el desarrollo del proyecto, son de los modelos de datos que voy a utilizar para guardar información y de los formularios para insertar información según esos modelos.
+
+El archivo con los tests que he realizado se pueden ver [aquí](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/proyecto/scrumpy/tests.py).
 
 ##Integración continua
 
 Para la integración continua de la aplicación he utilizado [Travis](https://travis-ci.org/) que permite soporte para el lenguaje de programación que utilizo y me permite trabajar directamente con este repositorio de github de forma fácil.
+
+Necesitamos para la integración continua:
+
+- El fichero [setup.py](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/proyecto/setup.py), en el que se indica información de la aplicación y dependencias (he utilizado el comando `pip freeze`para conocer estas)
+
+- El fichero de [tests](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/proyecto/scrumpy/tests.py) mencionado en el punto anterior.
 
 ###Pasos
 
@@ -63,14 +76,6 @@ Una vez creado lo subimos al directorio raíz de nuestro repositorio. A continua
 Ahora si nos vamos a la web de Travis podremos ver que se están realizando las operaciones pertinentes, y debería completarse con éxito todo el proceso. Recibiríamos un resultado parecido al siguiente:
 
 ![Resultado de la operación de integración continua](http://i1175.photobucket.com/albums/r628/jesusgorillo/travis_completado_zpshb1sstys.png)
-
-##Desarrollo basado en pruebas
-
-Para las pruebas para el despliegue de la aplicación he utilizado el sistema de test que ofrece Django, que utiliza un archivo llamado *test.py* en el que escribimos todos los tests que deseemos. Básicamente he utilizado este método porque tiene una estructura muy sencilla y es fácil de utilizar, además no es necesario instalar nada ya que viene incorporado. Puede consultar información [aquí](https://docs.djangoproject.com/en/1.8/topics/testing/).
-
-Los test que he realizado hasta ahora, ya que no tengo avanzado el desarrollo del proyecto, son de los modelos de datos que voy a utilizar para guardar información y de los formularios para insertar información según esos modelos.
-
-El archivo con los tests que he realizado se pueden ver [aquí](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/proyecto/scrumpy/tests.py).
 
 ##Comandos básicos
 
