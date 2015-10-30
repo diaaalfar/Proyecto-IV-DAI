@@ -1,9 +1,11 @@
 language: python
 python:
  - "3.4"
+before_script:
+ - cd proyecto
 # command to install dependencies
 install:
- - proyecto/make install
+ - make install
 # command to run tests
 script:
- - proyecto/make test
+ - make test
