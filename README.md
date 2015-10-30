@@ -39,11 +39,7 @@ El contenido del archivo irá variando a lo largo del proyecto, y puedes ver su 
 - test: para realizar los test
 - run: para ejecutar la aplicación
 
-Por ejemplo, podemos probar a ejecutar los siguientes comandos y ver los resultados
-
-`make test`
-
-![Resultado del comando make test](http://i1175.photobucket.com/albums/r628/jesusgorillo/make_test_zps4jeexsb8.png)
+Por ejemplo, podemos probar a ejecutar el comando para iniciar la aplicación y ver los resultados
 
 `make run`
 
@@ -56,6 +52,13 @@ Para las pruebas para el despliegue de la aplicación he utilizado el sistema de
 Los test que he realizado hasta ahora, ya que no tengo avanzado el desarrollo del proyecto, son de los modelos de datos que voy a utilizar para guardar información y de los formularios para insertar información según esos modelos.
 
 El archivo con los tests que he realizado se pueden ver [aquí](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/proyecto/scrumpy/tests.py).
+
+Prueba los tests con el siguiente comando:
+
+`make test`
+
+![Resultado del comando make test](http://i1175.photobucket.com/albums/r628/jesusgorillo/make_test_zps4jeexsb8.png)
+
 
 ##Integración continua
 
