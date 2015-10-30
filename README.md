@@ -60,7 +60,7 @@ Una vez creado lo subimos al directorio raíz de nuestro repositorio. A continua
 
 ![Menú del repositorio para activar el test](http://i1175.photobucket.com/albums/r628/jesusgorillo/test_service_zpsexufhaht.png)
 
-Ahora si nos vamos a la web de Travis podremos ver que se están realizando las operaciones pertinentes, y debería completarse con éxito todo el proceso. Recibiriamos un resultado parecido al siguiente:
+Ahora si nos vamos a la web de Travis podremos ver que se están realizando las operaciones pertinentes, y debería completarse con éxito todo el proceso. Recibiríamos un resultado parecido al siguiente:
 
 ![Resultado de la operación de integración continua](http://i1175.photobucket.com/albums/r628/jesusgorillo/travis_completado_zpshb1sstys.png)
 
@@ -75,9 +75,9 @@ El archivo con los tests que he realizado se pueden ver [aquí](https://github.c
 ##Comandos básicos
 
 ###Setup
-	`make install`
+	make install
 ###Test
-	`make test`
+	make test
 ###Run
-	`make run`
+	make run
 
