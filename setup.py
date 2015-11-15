@@ -8,9 +8,5 @@ setup(name="scrumpy",
 	author_email="jesusgorillo@gmail.com",
 	license="GNU General Public License",
 	packages=["proyecto"],
-	install_requires=[
-		"django",
-		"wheel",
-	],
 	zip_safe=False
 )
