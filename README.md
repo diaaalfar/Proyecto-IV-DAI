@@ -43,7 +43,6 @@ Por ejemplo, podemos probar a ejecutar el comando para iniciar la aplicación y 
 
 `$ python manage.py runserver`
 
-![Resultado del comando run](http://i1175.photobucket.com/albums/r628/jesusgorillo/make_run_zpsyztzax0u.png)
 
 ##Desarrollo basado en pruebas
 
@@ -56,8 +55,6 @@ El archivo con los tests que he realizado se pueden ver [aquí](https://github.c
 Prueba los tests con el siguiente comando:
 
 `$ python manage.py test`
-
-![Resultado del comando make test](http://i1175.photobucket.com/albums/r628/jesusgorillo/make_test_zps4jeexsb8.png)
 
 
 ##Despliegue en Paas - Heroku
