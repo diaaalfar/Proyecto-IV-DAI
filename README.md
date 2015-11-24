@@ -50,7 +50,7 @@ Para las pruebas para el despliegue de la aplicación he utilizado el sistema de
 
 Los test que he realizado hasta ahora, ya que no tengo avanzado el desarrollo del proyecto, son de los modelos de datos que voy a utilizar para guardar información y de los formularios para insertar información según esos modelos.
 
-El archivo con los tests que he realizado se pueden ver [aquí](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/scrumpy/tests.py).
+El archivo con los tests que he realizado se pueden ver [aquí](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/core/tests.py).
 
 Prueba los tests con el siguiente comando:
 
@@ -125,7 +125,7 @@ Necesitamos para la integración continua:
 
 > Esto también puede hacerse con el fichero **setup.py** pero hay que indicar las dependencias en él.
 
-- El fichero de [tests](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/scrumpy/tests.py) mencionado en el punto anterior.
+- El fichero de [tests](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/core/tests.py) mencionado en el punto anterior.
 
 
 ###Travis
