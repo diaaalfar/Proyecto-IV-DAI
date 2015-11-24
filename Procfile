@@ -1,1 +1,1 @@
-web: gunicorn proyecto.wsgi --log-file -
+web: gunicorn scrumpy.wsgi --log-file -
