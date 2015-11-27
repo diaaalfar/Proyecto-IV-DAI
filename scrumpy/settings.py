@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -83,6 +84,10 @@ DATABASES = {
     }
 }
 
+DEPLOY_HEROKU = os.environ.get('PORT')
+if DEPLOY_HEROKU:
+    DATABASE_URL='postgres://ohgvaeuqofzbdr:J0NJELBfg3d3UAOikpu9PwWYpS@ec2-54-204-30-115.compute-1.amazonaws.com:5432/do847mn2mbgdu'
+    DATABASES = {'default': dj_database_url.config(default=DATABASE_URL)}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
