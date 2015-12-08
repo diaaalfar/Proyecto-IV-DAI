@@ -10,15 +10,15 @@ Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuale
 
 ##Índice
 
-1 [Descripción](#descripcion)
-2 [Infraestructura](#infraestructura)
-3 [Herramientas](herramientas)
-4 [Herramienta de construcción](#herramienta-de-construccion)
-5 [Desarrollo basado en prubas](#desarrollo-basado-en-pruebas)
-6 [Despliegue en PaaS - Heroku](#despliegue-en-paas-heroku)
-7 [Integración Continua](#integracion-continua)
-8 [Entorno de prubas - Docker](#entorno-de-pruebas-docker)
-9 [Comando básicos](#comandos-basicos)
+1. [Descripción](#descripción)
+2. [Infraestructura](#infraestructura)
+3. [Herramientas](herramientas)
+4. [Herramienta de construcción](#herramienta-de-construcción)
+5. [Desarrollo basado en prubas](#desarrollo-basado-en-pruebas)
+6. [Despliegue en PaaS - Heroku](#despliegue-en-paas---heroku)
+7. [Integración Continua](#integración-continua)
+8 [Entorno de prubas - Docker](#entorno-de-pruebas---docker)
+9. [Comando básicos](#comandos-básicos)
 
 ##Descripción
 
@@ -73,6 +73,8 @@ Prueba los tests con el siguiente comando:
 
 Para el despligue de la aplicación he utilizado el Paas [heroku](https://www.heroku.com/) que me permite trabajar con el repositorio github directamente conectándolo a él, y realizar conjunta la integración continua con **Snap CI** antes de desplegarlo. He elegido **heroku** como PaaS porque he trabajado en la asignatura IV con este y la verdad que es muy fácil de usar.
 
+Podemos encontrar en [este enlace](https://scrumpy.herokuapp.com/) la aplicación desplegada.
+
 > Una vez completada la configuración de despliegue en **heroku** y comprobado que funcionaba, he automatizado el proceso de despliegue junto al proceso de integración continua con **Snap CI**. Esto se explica en el apartado de [Integración continua - Snap CI](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docs/integracion_continua.md#snap-ci)
 
 Se ha automatizado el despliegue en heroku con el script [deploy.sh](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/deploy.sh).
@@ -106,6 +108,8 @@ Para ver el proceso pulse en el siguiente enlace:
 
 ###Instalar python3
 	$ apt-get install -y python3-setuptools python3-dev build-essential libpq-dev
+### Instalar pip
+	$ sudo easy_install3 pip
 ###Instalar dependencias
 	$ pip install -r requirements.txt
 ###Sincronizar base de datos
