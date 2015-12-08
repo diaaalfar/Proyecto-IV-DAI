@@ -17,7 +17,7 @@ Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuale
 5. [Desarrollo basado en prubas](#desarrollo-basado-en-pruebas)
 6. [Despliegue en PaaS - Heroku](#despliegue-en-paas---heroku)
 7. [Integración Continua](#integración-continua)
-8 [Entorno de prubas - Docker](#entorno-de-pruebas---docker)
+8. [Entorno de prubas - Docker](#entorno-de-pruebas---docker)
 9. [Comando básicos](#comandos-básicos)
 
 ##Descripción
