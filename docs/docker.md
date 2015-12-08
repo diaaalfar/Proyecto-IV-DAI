@@ -35,7 +35,7 @@ Hecho esto, desde el botón ![Botón de crear en docker hub](http://i1175.photob
 
 Mi imagen puede encontrarse [aquí](https://hub.docker.com/r/jesgor/proyecto-iv-dai/).
 
-![Imagen del repositorio creado en docker hub](cap3)
+![Imagen del repositorio creado en docker hub](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap3_zpsfk6uho6v.png)
 
 Terminado el proceso ya podemos disponer de la imagen para trabajar con ella en nuestro ordenador. Esta imagen se actualizará según realizamos modificaciones en el repositorio de la aplicación.
 
