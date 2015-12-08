@@ -65,6 +65,7 @@ sudo docker run -i -t jesgor/proyecto-iv-dai /bin/bash
 Ya dentro del contenedor podemos ejecutar la aplicación del proyecto como si estuviésemos en el sistema anfitrión.
 
 `$ cd Proyecto-IV-DAI`
+
 `$ python3 manage.py runserver`
 
 Obtenemos la ip del contenedor con el comando `$ ifconfig` y desde un navegador del sistema anfitrión introducir la ip correspondiente para visualizar la aplicación (mientras está este arrancada).
