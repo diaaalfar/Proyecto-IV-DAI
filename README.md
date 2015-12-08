@@ -8,6 +8,18 @@ Jesús Prieto López
 
 Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuales (IV) y Desarrollo de Aplicaciones para Internet (DAI) de la UGR en 2015-16
 
+##Índice
+
+1 [Descripción](#descripcion)
+2 [Infraestructura](#infraestructura)
+3 [Herramientas](herramientas)
+4 [Herramienta de construcción](#herramienta-de-construccion)
+5 [Desarrollo basado en prubas](#desarrollo-basado-en-pruebas)
+6 [Despliegue en PaaS - Heroku](#despliegue-en-paas-heroku)
+7 [Integración Continua](#integracion-continua)
+8 [Entorno de prubas - Docker](#entorno-de-pruebas-docker)
+9 [Comando básicos](#comandos-basicos)
+
 ##Descripción
 
 Este proyecto consiste en crear la infraestructura para el alojamiento, funcionamiento y despliegue de una aplicación web. Será un proyecto que irá de la mano con el de la asignatura de DAI.
@@ -63,7 +75,7 @@ Para el despligue de la aplicación he utilizado el Paas [heroku](https://www.he
 
 > Una vez completada la configuración de despliegue en **heroku** y comprobado que funcionaba, he automatizado el proceso de despliegue junto al proceso de integración continua con **Snap CI**. Esto se explica en el apartado de [Integración continua - Snap CI](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docs/integracion_continua.md#snap-ci)
 
-Se ha automatizado el despliegue en heroku con el script [deploy.sh](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docker.sh).
+Se ha automatizado el despliegue en heroku con el script [deploy.sh](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/deploy.sh).
 
 Para ver el proceso pulse en el siguiente enlace:
 >####[Más informacion](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docs/despliegue_paas.md)
@@ -92,9 +104,17 @@ Para ver el proceso pulse en el siguiente enlace:
 
 ##Comandos básicos
 
-###Setup
+###Instalar python3
+	$ apt-get install -y python3-setuptools python3-dev build-essential libpq-dev
+###Instalar dependencias
 	$ pip install -r requirements.txt
+###Sincronizar base de datos
+	$ python manage.py migrate --noinput
 ###Test
 	$ python manage.py test
-###Run
+###Arrancar aplicación
 	$ python manage.py runserver
+###Despliegue en heroku
+	$ ./deploy.sh
+###Instalar imagen de entorno docker
+	$ ./docker.sh
