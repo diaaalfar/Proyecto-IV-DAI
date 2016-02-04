@@ -6,7 +6,7 @@ Necesitamos para la integración continua:
 
 > Esto también puede hacerse con el fichero **setup.py** pero hay que indicar las dependencias en él.
 
-- El fichero de [tests](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/core/tests.py) mencionado en el punto anterior.
+- El fichero de [tests](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/bares/tests.py) mencionado en el punto anterior.
 
 
 ##Travis
@@ -37,7 +37,7 @@ Una vez creado lo subimos al directorio raíz de nuestro repositorio. A continua
 
 Ahora si nos vamos a la web de Travis podremos ver que se están realizando las operaciones pertinentes, y debería completarse con éxito todo el proceso. Recibiríamos un resultado parecido al siguiente:
 
-![Resultado de la operación de integración continua](http://i1175.photobucket.com/albums/r628/jesusgorillo/travis_completado_zpshb1sstys.png)
+![Resultado de la operación de integración continua](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap1_zpsibj6oear.png)
 
 ##Snap CI
 
@@ -63,11 +63,11 @@ Otro stage para la realización de los tests de la aplicación en si, con la ord
 
 Creamos un stage de tipo **Deploy**  para **heroku**, conectandolo a la cuenta de la misma y seleccionando la aplicación que creamos en la PaaS.
 
-![Creación del stage para desplegar la aplicación en heroku](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap10_zpsvgt6s8lq.png)
+![Creación del stage para desplegar la aplicación en heroku](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap3_zps4axt4ajm.png)
 
-Añadimos el último stage referente a la base de datos, que ejecutará un comando para crear la base de datos una vez desplegada la app con los modelos definidos en la aplicación. El comando es `$ heroku run --app scrumpy python manage.py migrate --noinput`.
+Añadimos el último stage referente a la base de datos, que ejecutará un comando para crear la base de datos una vez desplegada la app con los modelos definidos en la aplicación. El comando es `$ heroku run --app proyecto-iv-dai python manage.py migrate --noinput`.
 
-![Stage con el comando para la creación de la base de datos en heroku](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap14_zpsmhuzqztn.png)
+![Stage con el comando para la creación de la base de datos en heroku](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap5_zpsskwsidpb.png)
 
 Por último, pulsamos en el botón de ![Botón para crear el proceso de integración continua](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap11_zps3mwkwf2t.png) para crear el proceso de integración continua.
 
@@ -75,10 +75,10 @@ Por último, pulsamos en el botón de ![Botón para crear el proceso de integrac
 
 La página cambia ahora a mostrarnos el proceso de integración continua y despliegue con los diferentes stages que hemos configurado. Si todo está correctamente nos aparecerá lo siguiente.
 
-![Proceso completado con éxito en Snap CI](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap15_zpswr3r7unr.png)
+![Proceso completado con éxito en Snap CI](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap2_zpskw30nyzp.png)
 
 Hemos pasado todos los stages, y se ha realizado el despliegue en **heroku**. Podemos comprobarlo desde el **Dashboard** del PaaS, accediendo a la aplicación y a la pestaña **Activity**.
 
-![Pestaña Activity con la información de despliegue de la aplicación hecha desde Snap CI](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap13_zpsk5hlca5v.png)
+![Pestaña Activity con la información de despliegue de la aplicación hecha desde Snap CI](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap6_zpsuvfamraf.png)
 
 Ahora ya está listo para el proceso de integración continua y el despliegue automático, cuando trabajemos con nuestro repositorio en github se realizará este proceso al realizar un `$ git push`.

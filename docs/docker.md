@@ -35,7 +35,7 @@ Hecho esto, desde el botón ![Botón de crear en docker hub](http://i1175.photob
 
 Mi imagen puede encontrarse [aquí](https://hub.docker.com/r/jesgor/proyecto-iv-dai/).
 
-![Imagen del repositorio creado en docker hub](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap3_zpsfk6uho6v.png)
+![Imagen del repositorio creado en docker hub](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap8_zpspias8ua1.png)
 
 Terminado el proceso ya podemos disponer de la imagen para trabajar con ella en nuestro ordenador. Esta imagen se actualizará según realizamos modificaciones en el repositorio de la aplicación.
 
@@ -70,6 +70,6 @@ Ya dentro del contenedor podemos ejecutar la aplicación del proyecto como si es
 
 Obtenemos la ip del contenedor con el comando `$ ifconfig` y desde un navegador del sistema anfitrión introducir la ip correspondiente para visualizar la aplicación (mientras está este arrancada).
 
-![Página principal del proyecto ejecutado desde el contenedor](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap29_zpsdqzqw3bq.png)
+![Página principal del proyecto ejecutado desde el contenedor](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap9_zps5itkcrwj.png)
 
 > Si desde el navegador del sistema anfitrión no se pudiera acceder a la aplicación web, ejecute el comando `$ python3 manage.py runserver,`anteriormente mencionado, seguido de `0.0.0.0:8000`. 
