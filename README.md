@@ -6,7 +6,7 @@ Jesús Prieto López
 [![Build Status](https://snap-ci.com/JesGor/Proyecto-IV-DAI/branch/master/build_image)](https://snap-ci.com/JesGor/Proyecto-IV-DAI/branch/master)
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://http://proyecto-iv-dai.herokuapp.com/.herokuapp.com/)
 
-Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuales (IV) y Desarrollo de Aplicaciones para Internet (DAI) de la UGR en 2015-16
+Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuales (IV) y Desarrollo de Aplicaciones para Internet (DAI) de la UGR en 2015-16.
 
 ##Índice
 
@@ -24,7 +24,7 @@ Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuale
 
 Este proyecto consiste en crear la infraestructura para el alojamiento, funcionamiento y despliegue de una aplicación web. Será un proyecto que irá de la mano con el de la asignatura de DAI.
 
-La idea se centra en realizar una aplicación web que funcione como un portal de información acerca de bares que visitar y tapas que puede tomar en él.
+La idea se centra en realizar una aplicación web que funcione como un portal de información acerca de bares que visitar, donde se pueden localizar estos y tapas que hay disponibles.
 
 El portal cuenta con un listado de bares junto a una gráfica con los bares más visitados. Dentro de cada bar tenemos información de este, como la localización por medio de un plugin que muestra el mapa y un listado de sus tapas. Cada tapa tiene un nº de votos que podemos ir aumentando al votarlas.
 
