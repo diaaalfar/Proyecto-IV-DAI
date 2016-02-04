@@ -1,10 +1,10 @@
 # Proyecto-IV-DAI
-# *Scrumpy*
+# *Bareteca*
 Jesús Prieto López
 
 [![Build Status](https://travis-ci.org/JesGor/Proyecto-IV-DAI.svg?branch=master)](https://travis-ci.org/JesGor/Proyecto-IV-DAI)
 [![Build Status](https://snap-ci.com/JesGor/Proyecto-IV-DAI/branch/master/build_image)](https://snap-ci.com/JesGor/Proyecto-IV-DAI/branch/master)
-[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://scrumpy.herokuapp.com/)
+[![Heroku](https://www.herokucdn.com/deploy/button.png)](https://http://proyecto-iv-dai.herokuapp.com/.herokuapp.com/)
 
 Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuales (IV) y Desarrollo de Aplicaciones para Internet (DAI) de la UGR en 2015-16
 
@@ -24,26 +24,31 @@ Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuale
 
 Este proyecto consiste en crear la infraestructura para el alojamiento, funcionamiento y despliegue de una aplicación web. Será un proyecto que irá de la mano con el de la asignatura de DAI.
 
-La idea se centra en realizar una aplicación web que funcione como un marco de desarrollo ágil, en el que las personas que trabajen en un proyecto puedan apoyarse para facilitar la organización del equipo de trabajo y el desarrollo de las diferentes partes que conforman el proyecto.
+La idea se centra en realizar una aplicación web que funcione como un portal de información acerca de bares que visitar y tapas que puede tomar en él.
 
-Me voy a basar en [**Scrum**](https://es.wikipedia.org/wiki/Scrum), centrandome por ahora en el **Scrum Taskboard**, que sería así como un tablero con las diferentes tareas a realizar para el desarrollo de un proyecto y que muestra lo que sucede en todo momento en la fase de desarrollo. Las tareas pasan a través de diferentes fases: "Pendiente" en el momento de su creación, "En progreso" cuando alguien está trabajando en ella, ...
+El portal cuenta con un listado de bares junto a una gráfica con los bares más visitados. Dentro de cada bar tenemos información de este, como la localización por medio de un plugin que muestra el mapa y un listado de sus tapas. Cada tapa tiene un nº de votos que podemos ir aumentando al votarlas.
+
+Esta web permite realizar el registro de usuario y la identificación de los mismos, que podrán añadir tapas a la base de datos.
 
 
 ##Infraestructura
 
-Al ser una aplicación web necesitaremos que de soporte ofreciendo una infraestructura que cuente con servidores web configurados y adaptados a las necesidades. En este caso lo mejor sería contar con varios servidores junto a un balanceador de carga para mayor rendimiento. Debe desplegar también la base de datos en la que se almacenará la información necesaria para la aplicación.
+Al ser una aplicación web necesitaremos que de soporte ofreciendo una infraestructura que cuente con un servidor web para desplegar la aplicación y que se ejecute en él. Debe desplegar también la base de datos en la que se almacenará la información necesaria para la aplicación.
 
-La infraestructura que utilizo en este proyecto es la que me proporciona una plataforma PaaS como es **heroku**.
+La infraestructura que utilizo en este proyecto es la que me proporciona una plataforma PaaS como es **heroku**. También hago uso de contenedores con **docker**. Y por último también utilizo máquinas virtuales que me proporciona **Azure**.
 
 ##Herramientas
 
 - La aplicación web será desarrollada en Python.
 - Junto a Python usaremos framework Django
-- Para la base de datos SQLite.
-
-Se irán añadiendo más herramientas en la descripción más adelante: utilizar varias herramientas para la replicación de base de datos en el servidor, utilizar RAID para el almacenamiento dentro de los servidores web...
-
-##Herramienta de construcción
+- Para la base de datos SQLite. En Heroku utilizamos PostgreSQL
+- [heroku](heroku.com) como PaaS para desplegar la aplicación
+- [Docker](www.docker.com) para crear contenedores
+- [Azure](azure.microsoft.com/es-es/) como IaaS para crear máquinas virtuales
+- [Snap-CI](snap-ci.com) y [Travis](travis-ci.org) para integración continua
+- [django-registration-redux](django-registration-redux.readthedocs.org/en/latest/) para el registro y login de usuarios
+- [django-easy-maps](github.com/bashu/django-easy-maps) para los mapas de los bares
+- [Bootstrap](getbootstrap.com) para el estilo de la aplicación##Herramienta de construcción
 
 Como herramienta de construcción he utilizado el archivo que por defecto crea el proyecto de Django, **manage.py**, el cual permite realizar varias operaciones de control, como ejecutar la aplicación o los test. Para la instalación de dependencias se hace uso de **requirements.txt** que podemos crear con `$ pip freeze` o el archivo **setup.py**.
 
@@ -73,7 +78,7 @@ Prueba los tests con el siguiente comando:
 
 Para el despligue de la aplicación he utilizado el Paas [heroku](https://www.heroku.com/) que me permite trabajar con el repositorio github directamente conectándolo a él, y realizar conjunta la integración continua con **Snap CI** antes de desplegarlo. He elegido **heroku** como PaaS porque he trabajado en la asignatura IV con este y la verdad que es muy fácil de usar.
 
-Podemos encontrar en [este enlace](https://scrumpy.herokuapp.com/) la aplicación desplegada.
+Podemos encontrar en [este enlace](https://proyecto-iv-dai.herokuapp.com/) la aplicación desplegada.
 
 > Una vez completada la configuración de despliegue en **heroku** y comprobado que funcionaba, he automatizado el proceso de despliegue junto al proceso de integración continua con **Snap CI**. Esto se explica en el apartado de [Integración continua - Snap CI](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docs/integracion_continua.md#snap-ci)
 
