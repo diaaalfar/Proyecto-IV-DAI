@@ -1,0 +1,25 @@
+- hosts: localhost
+  sudo: yes
+  remote_user: bareteca
+  tasks:
+  - name: Realizar upgrade
+    apt: update_cache=yes
+  - name: Instalar librerias python3
+    apt: name=python3-setuptools state=present
+    apt: name=python3-dev state=present
+    apt: name=build-essential state=present
+    apt: name=libpq-dev state=present
+  - name: Instalar pip
+    action: apt pkg=python3-pip
+  - name: Instalar git
+    apt: name=git state=present
+  - name: Descargar repositorio
+    git: repo=https://github.com/JesGor/Proyecto-IV-DAI.git dest=~/Proyecto-IV-DAI clone=yes force=yes
+  - name: Instalar dependencias
+    command: sudo pip3 install -r ~/Proyecto-IV-DAI/requirements.txt
+  - name: Dar permisos para ejecución
+    command: chmod -R +x ~/Proyecto-IV-DAI
+  - name: Instalar/Sincronizar base de datos
+    command: sudo python3 ~/Proyecto-IV-DAI/manage.py migrate --noinput
+  - name: Ejecutar app
+    command: nohup sudo python3 ~/Proyecto-IV-DAI/manage.py runserver 0.0.0.0:8000
