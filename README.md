@@ -5,6 +5,7 @@ Jesús Prieto López
 [![Build Status](https://travis-ci.org/JesGor/Proyecto-IV-DAI.svg?branch=master)](https://travis-ci.org/JesGor/Proyecto-IV-DAI)
 [![Build Status](https://snap-ci.com/JesGor/Proyecto-IV-DAI/branch/master/build_image)](https://snap-ci.com/JesGor/Proyecto-IV-DAI/branch/master)
 [![Heroku](https://www.herokucdn.com/deploy/button.png)](https://http://proyecto-iv-dai.herokuapp.com/.herokuapp.com/)
+[![Azure](http://azuredeploy.net/deploybutton.png)](http://bareteca.cloudapp.net/)
 
 Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuales (IV) y Desarrollo de Aplicaciones para Internet (DAI) de la UGR en 2015-16.
 
@@ -16,9 +17,10 @@ Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuale
 4. [Herramienta de construcción](#herramienta-de-construcción)
 5. [Desarrollo basado en prubas](#desarrollo-basado-en-pruebas)
 6. [Despliegue en PaaS - Heroku](#despliegue-en-paas---heroku)
-7. [Integración Continua](#integración-continua)
-8. [Entorno de prubas - Docker](#entorno-de-pruebas---docker)
-9. [Comando básicos](#comandos-básicos)
+7. [Despliegue en IaaS - Azure](#despliegue-en-iaas---azure)
+8. [Integración Continua](#integración-continua)
+9. [Entorno de prubas - Docker](#entorno-de-pruebas---docker)
+10. [Comando básicos](#comandos-básicos)
 
 ##Descripción
 
@@ -82,10 +84,23 @@ Podemos encontrar en [este enlace](https://proyecto-iv-dai.herokuapp.com/) la ap
 
 > Una vez completada la configuración de despliegue en **heroku** y comprobado que funcionaba, he automatizado el proceso de despliegue junto al proceso de integración continua con **Snap CI**. Esto se explica en el apartado de [Integración continua - Snap CI](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docs/integracion_continua.md#snap-ci)
 
-Se ha automatizado el despliegue en heroku con el script [deploy.sh](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/deploy.sh).
+Se ha automatizado el despliegue en **heroku** con el script [deploy.sh](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/heroku.sh).
 
 Para ver el proceso pulse en el siguiente enlace:
 >####[Más informacion](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docs/despliegue_paas.md)
+
+##Despliegue en IaaS - Azure
+
+He utilizado [Azure](https://azure.microsoft.com/es-es/) como IaaS para desplegar la aplicación en una máquina virtual. Para el proceso de despliegue he utilizado **Vagrant** de la mano de **Ansible** para la configuración, creación y provisionamiento de la máquina virtual, porque me permiten por medio de un plugin trabajar fácilmente con **Azure**.
+
+En [este enlace](bareteca.cloudapp.net) está la aplicación desplegada.
+
+> Puede que no pueda acceder a ella porque se encuentre la máquina apagada.
+
+Se ha automatizado el despliegue en **Azure** con el siguiente script [azure.sh](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/azure.sh)
+
+Para ver información del proceso que he seguido consulte el enlace siguiente:
+>####[Más informacion](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docs/despliegue_azure.md)
 
 ##Integración continua
 
@@ -95,7 +110,6 @@ También he utlizado [Snap CI](https://snap-ci.com/) para que realice la integra
 
 Para ver el proceso pulse en el siguiente enlace:
 >####[Más informacion](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docs/integracion_continua.md)
-
 
 ##Entorno de pruebas - Docker
 
@@ -119,11 +133,15 @@ Para ver el proceso pulse en el siguiente enlace:
 	$ pip install -r requirements.txt
 ###Sincronizar base de datos
 	$ python manage.py migrate --noinput
+###Instalación completa (todo lo anterior)
+	$ ./install
 ###Test
 	$ python manage.py test
 ###Arrancar aplicación
 	$ python manage.py runserver
 ###Despliegue en heroku
-	$ ./deploy.sh
+	$ ./heroku.sh
 ###Instalar imagen de entorno docker
 	$ ./docker.sh
+###Despliegue en Azure
+	$ ./azure.sh
