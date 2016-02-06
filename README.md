@@ -93,7 +93,7 @@ Para ver el proceso pulse en el siguiente enlace:
 
 He utilizado [Azure](https://azure.microsoft.com/es-es/) como IaaS para desplegar la aplicación en una máquina virtual. Para el proceso de despliegue he utilizado **Vagrant** de la mano de **Ansible** para la configuración, creación y provisionamiento de la máquina virtual, porque me permiten por medio de un plugin trabajar fácilmente con **Azure**.
 
-En [este enlace](bareteca.cloudapp.net) está la aplicación desplegada.
+En [este enlace](http://bareteca.cloudapp.net) está la aplicación desplegada.
 
 > Puede que no pueda acceder a ella porque se encuentre la máquina apagada.
 
