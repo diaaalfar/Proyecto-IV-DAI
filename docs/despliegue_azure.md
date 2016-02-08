@@ -21,6 +21,12 @@ $ apt-get install vagrant
 $ vagrant plugin install vagrant-azure
 ```
 
+* Fabric para desplegar la aplicación remotamente
+
+```
+$ apt-get install fabric
+```
+
 Empezamos utilizando el CLI de Azure para conectarnos a nuestra cuenta.
 
 `$ azure login`
@@ -41,7 +47,7 @@ Aquí otra vez se nos proporciona un enlace, tenemos que acceder a él y obtener
 
 La credencial descargada tenemos que importarla.
 
-`$ azure account import <credencial>
+`$ azure account import <credencial>`
 
 ![Importación de credencial](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap4_zps75zsqdkt.png)
 
@@ -139,18 +145,14 @@ En este archivo van los paquetes e instrucciones para preparar la máquina virtu
   - name: Instalar git
     apt: name=git state=present
   - name: Descargar repositorio
-    git: repo=https://github.com/JesGor/Proyecto-IV-DAI.git dest=~/Proyecto-IV-DAI clone=yes force=yes
+    git: repo=https://github.com/JesGor/Proyecto-IV-DAI.git dest=/home/bareteca/Proyecto-IV-DAI clone=yes force=yes
   - name: Instalar dependencias
-    command: sudo pip3 install -r ~/Proyecto-IV-DAI/requirements.txt
+    command: sudo pip3 install -r /home/bareteca/Proyecto-IV-DAI/requirements.txt
   - name: Dar permisos para ejecución
-    command: chmod -R +x ~/Proyecto-IV-DAI
+    command: chmod -R +x /home/bareteca/Proyecto-IV-DAI
   - name: Instalar/Sincronizar base de datos
-    command: sudo python3 ~/Proyecto-IV-DAI/manage.py migrate --noinput
-  - name: Ejecutar app
-    command: nohup sudo python3 ~/Proyecto-IV-DAI/manage.py runserver 0.0.0.0:8000
+    command: sudo python3 /home/bareteca/Proyecto-IV-DAI/manage.py migrate --noinput
 ```
-
-> se utiliza *nohup* para que la aplicación se quede en ejecución al cerrar la consola.
 
 También necesitamos de un archivo llamado **ansible_hosts** en el que indicaremos el host (máquina virtual) que será objetivo del provisionamiento. Aquí tenemos que indicar la IP que indicamos en el archivo **Vagrantfile**.
 
@@ -159,11 +161,44 @@ También necesitamos de un archivo llamado **ansible_hosts** en el que indicarem
 192.168.33.101
 ```
 
-Con todos los archivos preparados solo nos queda ejecutar el despliegue.
+Creamos como último el fichero de **Fabric** para el despliegue remoto, llamado **fabfile.py**, sino lo tenemos ya creado. [Aquí](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/fabfile.py) se puede ver mi archivo. Solo necesitamos, en mi caso, hacer una función para ejecutar la aplicación. Algo así:
+
+```
+def run_app():
+	run('nohup sudo python3 ~/Proyecto-IV-DAI/manage.py runserver 0.0.0.0:8000')
+```
+
+> Se hace uso de *nohup* para que la aplicación se siga ejecutando aún después de cerrar la terminal desde la que se ha ejecutado el comando
+
+Con todos los archivos preparados solo nos queda ejecutar la orden de *vagrant* para la creación y provisión.
 
 `$ vagrant up --provider=azure`
 
-El proceso tardará unos minutos, y si todo ha salido correctamente podremos acceder a nuestra aplicación ya desplegada en azure desde la dirección http://bareteca.cloudapp.net
+El proceso tardará unos minutos, y si todo ha salido correctamente, a continuación podemos desplegar nuestra aplicación remotamente con la siguiente orden:
+
+`$ fab -H bareteca@bareteca.cloudapp.net run_app`
+
+Podremos acceder a nuestra aplicación ya desplegada en azure desde la dirección http://bareteca.cloudapp.net
 
 ![Aplicación web desplegada en máquina virtual de azure](http://i1175.photobucket.com/albums/r628/jesusgorillo/cap6_zpswghgookh.png)
 
+Todo este proceso se ha automatizado con el script **azure.sh** cuyo contenido es:
+
+```
+#!/bin/bash
+
+#Instalar vagrant
+sudo apt-get install -y vagrant
+#Instalar plugin azure
+sudo vagrant plugin install vagrant-azure
+#Instalar pip
+sudo apt-get install -y python-pip
+#Instalar ansible
+sudo pip install paramiko PyYAML jinja2 httplib2 ansible
+#Instalar fabric
+sudo apt-get install -y fabric
+#Creación y provisionamiento de máquina virtual mediante archivo Vagrantfile y .yml
+sudo vagrant up --provider=azure
+#Despliegue/Inicio de la aplicación a través de fabric
+sudo fab -H bareteca@bareteca.cloudapp.net run_app
+```

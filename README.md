@@ -20,7 +20,8 @@ Repositorio dedicado al proyecto de las asignaturas de Infraestructuras Virtuale
 7. [Despliegue en IaaS - Azure](#despliegue-en-iaas---azure)
 8. [Integración Continua](#integración-continua)
 9. [Entorno de prubas - Docker](#entorno-de-pruebas---docker)
-10. [Comando básicos](#comandos-básicos)
+10. [Despliegue remoto - Fabric](#despliegue-remoto---fabric)
+11. [Comando básicos](#comandos-básicos)
 
 ##Descripción
 
@@ -122,6 +123,31 @@ Para disponer del entorno de pruebas e iniciarlo, ejecuta el archivo [docker.sh]
 Para ver el proceso pulse en el siguiente enlace:
 >####[Más informacion](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/docs/docker.md)
 
+##Despliegue remoto - Fabric
+
+He añadido el uso de [Fabric](http://www.fabfile.org/) para el despliegue de la aplicación remotamente y otras opciones que se podrán realizar remotamente para nuestra aplicación.
+
+> Por ejemplo, en el script de despliegue la aplicación en Azure he utilizado fabric para desplegar la aplicación después de haber creado y provisionado la máquina. Se puede ver en el punto anterior.
+
+Para esto he creado el archivo [fabfile.py](https://github.com/JesGor/Proyecto-IV-DAI/blob/master/fabfile.py) que contiene diferentes funciones que serán las encargadas de realizar el proceso que deseemos remotamente.
+
+Las funciones que contiene el fichero son:
+
+* run_app: para ejecutar la aplicación
+
+* install: para instalar las dependencias.
+
+* pull: para actualizar el código de la aplicación.
+
+Para usar Fabric es necesario instalarlo. Podemos hacerlo con *apt-get*.
+
+`$ apt-get install fabric`
+
+Para usarlo simplemente utilizamos el comando:
+
+`$ fabric [-H host_destino] <funcion>`
+
+Al ser remoto, con la opción **-H** indicamos el host remoto en el que realizar la acción.
 
 ##Comandos básicos
 
