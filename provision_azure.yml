@@ -14,12 +14,10 @@
   - name: Instalar git
     apt: name=git state=present
   - name: Descargar repositorio
-    git: repo=https://github.com/JesGor/Proyecto-IV-DAI.git dest=~/Proyecto-IV-DAI clone=yes force=yes
+    git: repo=https://github.com/JesGor/Proyecto-IV-DAI.git dest=/home/bareteca/Proyecto-IV-DAI clone=yes force=yes
   - name: Instalar dependencias
-    command: sudo pip3 install -r ~/Proyecto-IV-DAI/requirements.txt
+    command: sudo pip3 install -r /home/bareteca/Proyecto-IV-DAI/requirements.txt
   - name: Dar permisos para ejecución
-    command: chmod -R +x ~/Proyecto-IV-DAI
+    command: chmod -R +x /home/bareteca/Proyecto-IV-DAI
   - name: Instalar/Sincronizar base de datos
-    command: sudo python3 ~/Proyecto-IV-DAI/manage.py migrate --noinput
-  - name: Ejecutar app
-    command: nohup sudo python3 ~/Proyecto-IV-DAI/manage.py runserver 0.0.0.0:8000
+    command: sudo python3 /home/bareteca/Proyecto-IV-DAI/manage.py migrate --noinput
